@@ -38,7 +38,7 @@ const Pokemon = ( {pokeData}) =>{
             <h2>
                 {pokeData[pokeId]?.name}
             </h2>
-            <img src = {indPoke.sprites?.front_default} alt = 'pika...no?'/>
+            <img src = {indPoke.sprites?.other["official-artwork"].front_default} alt = 'pika...no?'/>
             <button>Add To Favorites</button>
             <p>BASE EXPERIENCE: {indPoke.base_experience}</p>
             <p>ID: {indPoke.id}</p>

@@ -5,7 +5,6 @@ import {useState} from "react"
 
 function Home({pokeData}) {
     let [favorites,setFavorites] = useState([]);
-
     console.log('home favorites', favorites)
     
         return (
@@ -23,15 +22,6 @@ function Home({pokeData}) {
                     <FavoriteList />
                 </Route>
             </Switch>   
-                
-            {/* <Switch>
-                <Route path={`${match.path}/:topicId`}>
-                    <IndivProduct />
-                </Route>
-                <Route exact path={match.path}>
-                    <h3>Please select a Product.</h3>
-                </Route>
-            </Switch> */}
 
         </div>
     );
