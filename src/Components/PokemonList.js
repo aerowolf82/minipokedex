@@ -2,7 +2,7 @@ import { Switch, Route, useRouteMatch, NavLink} from "react-router-dom";
 import Pokemon from './Pokemon.js'
 import './PokemonList.css';
 
-function PokemonList({pokeData}) {
+function PokemonList({pokeData, favorites}) {
         let match = useRouteMatch()
         console.log(JSON.stringify(match))
     
@@ -21,7 +21,7 @@ function PokemonList({pokeData}) {
             </div>
                 <Switch>
                     <Route path={`${match.path}/:pokeId`}>
-                        <Pokemon pokeData = {pokeData}/>
+                        <Pokemon pokeData = {pokeData} />
                     </Route>
                 </Switch>
         </div>

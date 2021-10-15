@@ -5,6 +5,7 @@ import Home from './Components/Home'
 import Header from './Components/Header'
 import FavoriteList from './Components/FavoriteList'
 import { useEffect, useState } from 'react'
+import Context from './Context.js'
 import PokemonList from './Components/PokemonList';
 
 
@@ -17,6 +18,7 @@ async function getProducts() {
 function App() {
 
   let [pokeData, setPokeData] = useState([]);
+  
   
   console.log(pokeData);
   useEffect(() => {

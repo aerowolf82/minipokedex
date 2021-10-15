@@ -12,6 +12,8 @@ async function getPokemonDetails(pokeId){
 
 
 const Pokemon = ( {pokeData}) =>{
+    
+
     let { pokeId } = useParams();
     const [indPoke, setPoke] = useState([])
 
@@ -29,13 +31,7 @@ const Pokemon = ( {pokeData}) =>{
     //let test = "indPoke.sprites.other.official-artwork.front_default"
     //console.log(indPoke.sprites.front_default)
 
-    let [favorites,setFavorites] = useState([]);
 
-    function handleClick(e){
-        e.preventDefault();
-        setFavorites([...favorites, pokeId]);
-        console.log(favorites);
-    }
     
     return (
         <>
@@ -43,7 +39,7 @@ const Pokemon = ( {pokeData}) =>{
                 {pokeData[pokeId]?.name}
             </h2>
             <img src = {indPoke.sprites?.front_default} alt = 'pika...no?'/>
-            <button onClick = {handleClick}>Favorite</button>
+            <button>Add To Favorites</button>
             <p>BASE EXPERIENCE: {indPoke.base_experience}</p>
             <p>ID: {indPoke.id}</p>
             {indPoke.abilities?
@@ -61,7 +57,7 @@ const Pokemon = ( {pokeData}) =>{
             {/*type placeholder - indPoke.types[..].type.name 
             ART:
                 indPoke.sprites.other.official-artwork.front_default*/}
-            JSON.stringify(indPoke)
+            {JSON.stringify(indPoke.sprites?.other)}
         </>
     )
 }

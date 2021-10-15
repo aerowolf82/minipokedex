@@ -1,8 +1,12 @@
-import { Switch, Route, useRouteMatch, Link} from "react-router-dom";
+import { Switch, Route, Link} from "react-router-dom";
 import PokemonList from './PokemonList.js'
 import FavoriteList from './FavoriteList.js'
+import {useState} from "react"
 
 function Home({pokeData}) {
+    let [favorites,setFavorites] = useState([]);
+
+    console.log('home favorites', favorites)
     
         return (
 
@@ -13,7 +17,7 @@ function Home({pokeData}) {
             <Link to="./pokemon">Pokemon List</Link>
             <Switch>
                 <Route path="/pokemon">
-                    <PokemonList pokeData = {pokeData}/>
+                    <PokemonList pokeData = {pokeData} favorites = {favorites}/>
                 </Route>
                 <Route path="/favorites">
                     <FavoriteList />
