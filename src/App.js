@@ -3,7 +3,9 @@ import './App.css';
 import { BrowserRouter as Router, Route} from "react-router-dom";
 import Home from './Components/Home'
 import Header from './Components/Header'
+import FavoriteList from './Components/FavoriteList'
 import { useEffect, useState } from 'react'
+import PokemonList from './Components/PokemonList';
 
 
 async function getProducts() {
@@ -34,12 +36,21 @@ function App() {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <nav className="Nav">
-            <Route path='/:page' component={Header} />
-            <Route exact path='/' component={Header} />          
+            <Route path='/:page' component={Header} />  
+            <Route exact path='/' component={Header} />
           </nav>
         </header>
 
-        <Route path="/home">
+        <Route path="/pokemon">
+          <PokemonList pokeData = {pokeData} />
+        </Route>
+        <Route path="/favorites">
+          <FavoriteList />
+        </Route>
+        <Route exact path="/">
+          <Home pokeData = {pokeData}/>
+        </Route>
+        <Route exact path="/home">
           <Home pokeData = {pokeData}/>
         </Route>
       </div>

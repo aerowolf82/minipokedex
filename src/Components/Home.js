@@ -1,30 +1,24 @@
-import { Switch, Route, useRouteMatch, NavLink} from "react-router-dom";
-import Pokemon from './Pokemon.js'
-import './Home.css';
+import { Switch, Route, useRouteMatch, Link} from "react-router-dom";
+import PokemonList from './PokemonList.js'
+import FavoriteList from './FavoriteList.js'
 
 function Home({pokeData}) {
-        let match = useRouteMatch()
-        //console.log(JSON.stringify(match))
     
         return (
 
         <div>
             <h1>
-                Pokemon List
+                Home
             </h1>
-            <div>
-                {(pokeData.map((pokeData,index)=>(
-                    <NavLink className="NavLink" to={`${match.url}/${index}`}>
-                        {pokeData.name}
-                    </NavLink>
-                )))}
-            </div>
-                <Switch>
-                    <Route path={`${match.path}/:pokeId`}>
-                        <Pokemon pokeData = {pokeData}/>
-                    </Route>
-                </Switch>                
-                      
+            <Link to="./pokemon">Pokemon List</Link>
+            <Switch>
+                <Route path="/pokemon">
+                    <PokemonList pokeData = {pokeData}/>
+                </Route>
+                <Route path="/favorites">
+                    <FavoriteList />
+                </Route>
+            </Switch>   
                 
             {/* <Switch>
                 <Route path={`${match.path}/:topicId`}>

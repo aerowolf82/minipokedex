@@ -14,6 +14,7 @@ async function getPokemonDetails(pokeId){
 const Pokemon = ( {pokeData}) =>{
     let { pokeId } = useParams();
     const [indPoke, setPoke] = useState([])
+
     
     useEffect(() => {
         let mounted = true;
@@ -25,43 +26,47 @@ const Pokemon = ( {pokeData}) =>{
             })
         return () => mounted = false;
       }, [pokeId])    
-    console.log(indPoke)
-    //let test = "indPoke.sprites.other.officialArtwork.front_default"
-    console.log(indPoke.sprites.front_default)
-    console.log(indPoke.moves)
+    //let test = "indPoke.sprites.other.official-artwork.front_default"
+    //console.log(indPoke.sprites.front_default)
 
+    let [favorites,setFavorites] = useState([]);
+
+    function handleClick(e){
+        e.preventDefault();
+        setFavorites([...favorites, pokeId]);
+        console.log(favorites);
+    }
+    
     return (
         <>
             <h2>
                 {pokeData[pokeId]?.name}
             </h2>
-            {/* img placeholder */}
+            <img src = {indPoke.sprites?.front_default} alt = 'pika...no?'/>
+            <button onClick = {handleClick}>Favorite</button>
             <p>BASE EXPERIENCE: {indPoke.base_experience}</p>
             <p>ID: {indPoke.id}</p>
-             <div>
+            {indPoke.abilities?
+            <div>
                 {(indPoke.abilities.map((ability,index)=>(
                     <p key = {index}>ABILITY {index+1}: {ability.ability.name}</p>
                 )))} 
-            </div>
+            </div> : <></>}
+            {indPoke.moves?
             <div>
                 {(indPoke.moves.map((move,index)=>(
                     <p key = {index}>MOVE {index+1}: {move.move.name}</p>
-                )))}
-            </div>
+                )))} 
+            </div>: <></>}
             {/*type placeholder - indPoke.types[..].type.name 
             ART:
                 indPoke.sprites.other.official-artwork.front_default*/}
+            JSON.stringify(indPoke)
         </>
     )
 }
 export default Pokemon;
 /*
-
-
-
-
-
-
 async function getProductDetails(ProductId) {
     let result = await fetch(`http://52.26.193.201:3000/products/${ProductId}`);
     let json = await result.json();
@@ -95,14 +100,4 @@ function ProductCard(product) {
         setUrl(imageURL);
         setToggled(!toggled);
     }
-
-
-
-
-
-
-
-
-
-
 */
