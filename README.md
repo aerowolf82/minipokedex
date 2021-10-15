@@ -68,3 +68,23 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+Problem Statement:
+Starting with a clean CRA app, design a mini-PokeDex which uses react-router to allow users to navigate around the site.
+
+Mandatory Users Stories
+As a user I:
+
+[/] Want to be presented with a list of the first 10 Pokemon from the series on the main page
+[] Show the details of selected Pokemon in a nested route
+[] Want be able to select Pokemon as “favorites” so that I can access them later.
+[] Want a link with a /favorites route that leads to all of the cards that I have favored.
+
+Stretch Goals
+
+[] Paginate the initial list to allow for browsing a larger selection of Pokemon
+[] Search for a Pokemon via its name, retain ability to view details and add it to favorites
+[] Use Material UI to style cards.
+
+Deadline:
+14:00 CST Friday Oct 15

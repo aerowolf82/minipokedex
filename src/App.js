@@ -12,10 +12,9 @@ async function getProducts() {
   return data;
 }
 
-
 function App() {
 
-  let [pokeData, setPokeData] = useState();
+  let [pokeData, setPokeData] = useState([]);
   
   console.log(pokeData);
   useEffect(() => {
@@ -40,7 +39,9 @@ function App() {
           </nav>
         </header>
 
-        <Route exact path="/" component={Home} />
+        <Route path="/home">
+          <Home pokeData = {pokeData}/>
+        </Route>
       </div>
     </Router>
   );
